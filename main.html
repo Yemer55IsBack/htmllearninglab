@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive HTML Beginner Course</title>
+    <!-- Tailwind CSS for rapid, modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Smooth custom scrollbars */
+        .custom-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+        .custom-scroll:hover::-webkit-scrollbar-thumb { background-color: #94a3b8; }
+        
+        .custom-scroller-v2::-webkit-scrollbar { width: 10px; }
+        .custom-scroller-v2::-webkit-scrollbar-track { background: #1e1e1e; }
+        .custom-scroller-v2::-webkit-scrollbar-thumb { background-color: #475569; border-radius: 10px; border: 2px solid #1e1e1e; }
+        .custom-scroller-v2:hover::-webkit-scrollbar-thumb { background-color: #64748b; }
+
+        /* Animation for Try It button */
+        @keyframes flashBg {
+            0% { background-color: #1e1e1e; }
+            50% { background-color: #334155; }
+            100% { background-color: #1e1e1e; }
+        }
+        .flash-editor { animation: flashBg 0.4s ease-out; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-hidden">
+
+    <div class="flex flex-col md:flex-row h-screen w-full">
+        
+        <!-- MAIN EDUCATIONAL CONTENT VIEWPORT - Dynamically injects lessons -->
+        <div class="w-full md:w-1/2 lg:w-7/12 h-full overflow-y-auto custom-scroll p-6 md:p-10 lg:p-16 relative">
+            <div class="max-w-3xl mx-auto pb-20">
+                
+                <!-- Header -->
+                <header class="mb-12">
+                    <div class="inline-flex items-center justify-center p-3 bg-blue-600 rounded-2xl mb-6 shadow-lg shadow-blue-500/30">
+                        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Learn HTML Today</h1>
+                    <p class="text-lg md:text-xl text-slate-600 leading-relaxed">
+                        The interactive, hands-on way to write your first lines of code. Read the short lessons below and click <span class="inline-block bg-blue-100 text-blue-700 text-sm font-bold px-2 py-1 rounded">TRY IT</span> to experiment in the Live Editor!
+                    </p>
+                </header>
+
+                <!-- Lesson 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-xl p-2.5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">1. Tags & Elements</h2>
+                    </div>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        HTML uses <strong>tags</strong> to label pieces of content. Most tags come in pairs: an opening tag and a closing tag. The closing tag has a forward slash <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">/</code>. The content you want to display goes right in the middle!
+                    </p>
+                    <div class="bg-[#1e1e1e] rounded-xl p-5 relative group shadow-inner">
+                        <pre class="font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed"><code class="language-html"><span class="text-blue-400">&lt;button&gt;</span><span class="text-slate-200">Click Me!</span><span class="text-blue-400">&lt;/button&gt;</span>
+<span class="text-blue-400">&lt;p&gt;</span><span class="text-slate-200">This is a paragraph inside tags.</span><span class="text-blue-400">&lt;/p&gt;</span></code></pre>
+                        <button onclick="loadCode('code-tags')" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg opacity-100 md:opacity-0 group-hover:opacity-100 transition-all shadow-md font-bold tracking-wide">TRY IT</button>
+                    </div>
+                </div>
+
+                <!-- Lesson 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-emerald-100 text-emerald-600 rounded-xl p-2.5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">2. Headings & Paragraphs</h2>
+                    </div>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        Headings make text big and bold, perfect for titles. There are 6 levels, from <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;h1&gt;</code> (biggest) to <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;h6&gt;</code> (smallest). Regular text is wrapped in a <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;p&gt;</code> (paragraph) tag.
+                    </p>
+                    <div class="bg-[#1e1e1e] rounded-xl p-5 relative group shadow-inner">
+                        <pre class="font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed"><code class="language-html"><span class="text-blue-400">&lt;h1&gt;</span><span class="text-slate-200">Main Title Here</span><span class="text-blue-400">&lt;/h1&gt;</span>
+<span class="text-blue-400">&lt;h2&gt;</span><span class="text-slate-200">A Subheading</span><span class="text-blue-400">&lt;/h2&gt;</span>
+<span class="text-blue-400">&lt;p&gt;</span><span class="text-slate-200">This is just a normal paragraph of text on the web page.</span><span class="text-blue-400">&lt;/p&gt;</span></code></pre>
+                        <button onclick="loadCode('code-headings')" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg opacity-100 md:opacity-0 group-hover:opacity-100 transition-all shadow-md font-bold tracking-wide">TRY IT</button>
+                    </div>
+                </div>
+
+                <!-- Lesson 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-rose-100 text-rose-600 rounded-xl p-2.5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">3. Formatting Text</h2>
+                    </div>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        You can style words directly in HTML! Use <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;strong&gt;</code> for bold text, and <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;em&gt;</code> for italics. The <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;br&gt;</code> tag forces a line break—it's a special "empty" tag that doesn't need to be closed.
+                    </p>
+                    <div class="bg-[#1e1e1e] rounded-xl p-5 relative group shadow-inner">
+                        <pre class="font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed"><code class="language-html"><span class="text-blue-400">&lt;p&gt;</span><span class="text-slate-200">This sentence contains </span><span class="text-blue-400">&lt;strong&gt;</span><span class="text-slate-200">important bold words</span><span class="text-blue-400">&lt;/strong&gt;</span><span class="text-slate-200">.</span><span class="text-blue-400">&lt;/p&gt;</span>
+<span class="text-blue-400">&lt;p&gt;</span><span class="text-slate-200">This has some </span><span class="text-blue-400">&lt;em&gt;</span><span class="text-slate-200">emphasized italics</span><span class="text-blue-400">&lt;/em&gt;</span><span class="text-slate-200">.</span><span class="text-blue-400">&lt;/p&gt;</span>
+<span class="text-blue-400">&lt;p&gt;</span><span class="text-slate-200">First line.</span><span class="text-blue-400">&lt;br&gt;</span><span class="text-slate-200">Second line pushed down.</span><span class="text-blue-400">&lt;/p&gt;</span></code></pre>
+                        <button onclick="loadCode('code-format')" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg opacity-100 md:opacity-0 group-hover:opacity-100 transition-all shadow-md font-bold tracking-wide">TRY IT</button>
+                    </div>
+                </div>
+
+                <!-- Lesson 4 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-sky-100 text-sky-600 rounded-xl p-2.5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">4. Links & Images</h2>
+                    </div>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        Tags can have <strong>attributes</strong> to provide extra info. Links use the <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;a&gt;</code> (anchor) tag with an <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">href</code> attribute pointing to a URL. Images use the <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;img&gt;</code> tag with a <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">src</code> attribute for the image file.
+                    </p>
+                    <div class="bg-[#1e1e1e] rounded-xl p-5 relative group shadow-inner">
+                        <pre class="font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed"><code class="language-html"><span class="text-slate-500">&lt;!-- Creating a clickable link --&gt;</span>
+<span class="text-blue-400">&lt;a</span> <span class="text-sky-300">href=</span><span class="text-orange-300">"https://www.google.com"</span> <span class="text-sky-300">target=</span><span class="text-orange-300">"_blank"</span><span class="text-blue-400">&gt;</span><span class="text-slate-200">Go to Google</span><span class="text-blue-400">&lt;/a&gt;</span>
+
+<span class="text-slate-500">&lt;!-- Displaying an image --&gt;</span>
+<span class="text-blue-400">&lt;img</span> <span class="text-sky-300">src=</span><span class="text-orange-300">"https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300"</span> <span class="text-sky-300">alt=</span><span class="text-orange-300">"Puppy"</span><span class="text-blue-400">&gt;</span></code></pre>
+                        <button onclick="loadCode('code-media')" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg opacity-100 md:opacity-0 group-hover:opacity-100 transition-all shadow-md font-bold tracking-wide">TRY IT</button>
+                    </div>
+                </div>
+
+                <!-- Lesson 5 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-amber-100 text-amber-600 rounded-xl p-2.5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800">5. Making Lists</h2>
+                    </div>
+                    <p class="text-slate-600 mb-5 leading-relaxed">
+                        Create unordered (bulleted) lists with <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;ul&gt;</code> or ordered (numbered) lists with <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;ol&gt;</code>. Inside, wrap every list item with an <code class="bg-slate-100 px-1 py-0.5 rounded text-pink-500 font-mono">&lt;li&gt;</code> tag.
+                    </p>
+                    <div class="bg-[#1e1e1e] rounded-xl p-5 relative group shadow-inner">
+                        <pre class="font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed"><code class="language-html"><span class="text-blue-400">&lt;h2&gt;</span><span class="text-slate-200">My Grocery List</span><span class="text-blue-400">&lt;/h2&gt;</span>
+<span class="text-blue-400">&lt;ul&gt;</span>
+  <span class="text-blue-400">&lt;li&gt;</span><span class="text-slate-200">Apples</span><span class="text-blue-400">&lt;/li&gt;</span>
+  <span class="text-blue-400">&lt;li&gt;</span><span class="text-slate-200">Bananas</span><span class="text-blue-400">&lt;/li&gt;</span>
+<span class="text-blue-400">&lt;/ul&gt;</span></code></pre>
+                        <button onclick="loadCode('code-lists')" class="absolute top-4 right-4 bg-blue-600 hover:bg-blue-500 text-white text-xs px-4 py-2 rounded-lg opacity-100 md:opacity-0 group-hover:opacity-100 transition-all shadow-md font-bold tracking-wide">TRY IT</button>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 mb-6 text-slate-500">
+                    <p>🎉 Keep experimenting! The web is your canvas.</p>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- WORKSPACE SANDBOX CONTAINER -->
+        <!-- Note: Sticky positioning might break on older iOS, fallback handled in CSS -->
+        <div id="interactive_workspace_panel" class="w-full md:w-1/2 lg:w-5/12 bg-[#1e1e1e] flex flex-col h-[70vh] md:h-screen md:sticky top-0 shadow-2xl border-l border-slate-800 z-10" data-component="SandboxView">
+            
+            <!-- Toolbar / Header Controls -->
+            <div class="flex flex-none items-center justify-between px-5 py-3 bg-[#181818] border-b border-[#2d2d2d]">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    <span class="text-slate-300 font-medium text-sm tracking-wide" data-i18n="editor.filename">index.html</span>
+                </div>
+                <!-- TODO: Implement user preferences for auto-save instead of manual reset -->
+                <button onclick="resetEditor()" data-track-event="click:reset_code" class="text-slate-400 hover:text-white text-xs font-semibold px-3 py-1.5 rounded-md border border-slate-700 hover:bg-slate-800 transition-colors">Reset Code</button>
+            </div>
+            
+            <!-- Raw User Input Area -->
+            <!-- v2: Need to migrate this to Monaco Editor for better syntax highlighting (JIRA-492) -->
+            <div class="flex-1 relative min-h-[40%]">
+                <textarea id="user_html_payload" class="absolute inset-0 w-full h-full bg-[#1e1e1e] text-[#d4d4d4] font-mono text-sm sm:text-[15px] p-5 focus:outline-none custom-scroller-v2 resize-none" spellcheck="false" placeholder="Type your HTML here..." data-lpignore="true" aria-label="Code Editor"></textarea>
+            </div>
+
+            <!-- Preview Header -->
+            <div class="flex flex-none items-center justify-between px-5 py-2.5 bg-slate-200 border-t border-slate-300 shadow-sm z-20">
+                <div class="flex items-center gap-2">
+                    <div class="flex gap-1.5 mr-3">
+                        <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                        <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                    </div>
+                    <span class="text-slate-600 font-bold text-[11px] uppercase tracking-widest">Live Preview</span>
+                </div>
+            </div>
+
+            <!-- Output Iframe (Live Preview) -->
+            <div class="flex-1 min-h-[40%] bg-white relative">
+                <iframe id="preview-frame" class="absolute inset-0 w-full h-full border-none"></iframe>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Hidden Scripts containing the raw HTML snippets for the lessons -->
+    <script type="text/plain" id="code-intro">
+<!-- Welcome to your first HTML file! -->
+<h1>Hello, World!</h1>
+<p>Try changing this text and watch the preview update instantly below.</p>
+</script>
+
+    <script type="text/plain" id="code-tags">
+<button style="padding: 10px 20px; background: blue; color: white; border-radius: 5px; border: none;">
+  Click Me!
+</button>
+
+<p>This is a paragraph inside tags. Notice how the button has opening and closing tags?</p>
+</script>
+
+    <script type="text/plain" id="code-headings">
+<h1>Main Title Here</h1>
+<h2>A Subheading</h2>
+<h3>A Smaller Heading</h3>
+<p>This is just a normal paragraph of text on the web page. Headings are great for structuring your document!</p>
+</script>
+
+    <script type="text/plain" id="code-format">
+<p>This sentence contains <strong>important bold words</strong>.</p>
+<p>This has some <em>emphasized italics</em>.</p>
+<p>First line.<br>Second line pushed down.</p>
+</script>
+
+    <script type="text/plain" id="code-media">
+<h2>Cute Puppy</h2>
+<img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=300&q=80" alt="Beagle Puppy" style="border-radius: 12px; margin-bottom: 10px;">
+<br>
+<a href="https://en.wikipedia.org/wiki/Dog" target="_blank">Click here to learn more about dogs</a>
+</script>
+
+    <script type="text/plain" id="code-lists">
+<h2>My Grocery List</h2>
+<ul>
+  <li>Apples</li>
+  <li>Bananas</li>
+  <li>Milk</li>
+</ul>
+
+<h2>Top 3 Movies</h2>
+<ol>
+  <li>The Matrix</li>
+  <li>Inception</li>
+  <li>Interstellar</li>
+</ol>
+</script>
+
+    <!-- Application Logic -->
+    <script>
+        const htmlInput = document.getElementById('user_html_payload');
+        const previewFrame = document.getElementById('preview-frame');
+
+        // Function to update the iframe preview based on textarea content
+        function updatePreview() {
+            const code = htmlInput.value;
+            // Get the document object of the iframe
+            const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            
+            doc.open();
+            // Injecting a base style so the iframe looks a bit modern by default, 
+            // but the user's HTML is injected directly into the body.
+            doc.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>
+                        /* Base styling for the preview window */
+                        body { 
+                            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+                            padding: 1.5rem; 
+                            color: #1e293b; 
+                            line-height: 1.6; 
+                            margin: 0;
+                            box-sizing: border-box;
+                        }
+                        h1, h2, h3, h4 { color: #0f172a; margin-top: 0; }
+                        a { color: #2563eb; text-decoration: underline; }
+                        a:hover { color: #1d4ed8; }
+                        img { max-width: 100%; height: auto; }
+                    </style>
+                </head>
+                <body>
+                    ${code}
+                </body>
+                </html>
+            `);
+            doc.close();
+        }
+
+        // Listen for user typing
+        htmlInput.addEventListener('input', updatePreview);
+
+        // Function to load snippet into editor from a lesson
+        function loadCode(snippetId) {
+            const codeEl = document.getElementById(snippetId);
+            if (!codeEl) return;
+            
+            const rawCode = codeEl.textContent.trim();
+            htmlInput.value = rawCode;
+            updatePreview();
+
+            // Flash animation for visual feedback
+            htmlInput.classList.remove('flash-editor');
+            void htmlInput.offsetWidth; // trigger reflow
+            htmlInput.classList.add('flash-editor');
+
+            // On mobile devices, smoothly scroll down to the editor
+            if (window.innerWidth < 768) {
+                document.getElementById('interactive_workspace_panel').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Function to reset the editor to the welcome snippet
+        function resetEditor() {
+            loadCode('code-intro');
+        }
+
+        // Initialize on load
+        window.onload = () => {
+            resetEditor();
+        };
+    </script>
+</body>
+</html>
